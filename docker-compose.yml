@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: mplad_monitoring_db
+    environment:
+      - POSTGRES_USER=mplad_admin
+      - POSTGRES_PASSWORD=mplad_password
+      - POSTGRES_DB=mplad_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres_init:/docker-entrypoint-initdb.d
+    restart: always
+
+volumes:
+  postgres_data:

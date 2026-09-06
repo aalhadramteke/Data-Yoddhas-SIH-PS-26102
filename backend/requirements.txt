@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+scikit-learn
+xgboost
+pandas
+geopandas
+psycopg2-binary
+imagehash
+pillow
+python-multipart
+pydantic
