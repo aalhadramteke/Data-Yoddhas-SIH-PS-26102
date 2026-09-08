@@ -85,9 +85,3 @@ npm run dev
     - Click a marker to see the **AI Reasoning** (e.g., *"Duplicate asset photo hash matches Project #1042"*).
     - Review the **High-Risk Case** sidebar for a summarized audit trail.
 
----
-
-## 🎓 Final Year Project Credits
-- **Domain**: Geospatial AI & Public Governance
-- **Objective**: Transparency and Accountability in Public Infrastructure spending.
-- **Architecture**: Full-Stack Decoupled Architecture.
