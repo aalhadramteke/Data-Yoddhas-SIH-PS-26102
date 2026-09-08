@@ -1,58 +1,93 @@
-# MPLAD AI Monitoring Platform 🚀
+# 🛡️ MPLAD AI Monitoring Platform
+**Enterprise-Grade Anomaly, Fraud, and Inefficiency Detection System**
 
-Enterprise-grade AI system for detecting anomalies, fraud, and inefficiencies in the MPLAD Scheme implementation.
+This platform is developed as a solution for **SIH Problem Statement 102**. It leverages Machine Learning and Geospatial Analysis to monitor the implementation of the Member of Parliament Local Area Development (MPLAD) scheme, ensuring that public funds are utilized efficiently and without fraud.
 
-## 🏗 Architecture
-- **Database**: PostgreSQL + PostGIS (Docker)
-- **Backend**: FastAPI + Scikit-Learn (Isolation Forest) + Geopandas
-- **Frontend**: Next.js 14 + Tailwind CSS + Leaflet GIS
+---
 
-## 🚀 Quick Start (PowerShell)
+## 🚀 Core Features
 
-### 1. Database Setup
+### 1. 🤖 AI Anomaly Detection Engine
+The system employs a multi-layered AI approach to detect irregularities:
+- **Fund-Splitting Detection**: Uses an **Isolation Forest (Unsupervised ML)** model to identify "expenditure spikes" or unusual sanction amounts that deviate from the statistical norm.
+- **Ghost Asset Detection**: Utilizes **PostGIS Spatial Proximity Analysis** (`ST_DWithin`) to flag multiple physical assets registered within a 50-meter radius, identifying "duplicate" or "ghost" projects.
+- **Photo Fraud Detection**: Implements **Perceptual Hashing (pHash)** to detect recycled or duplicate progress photos uploaded for different project sites.
+
+### 2. 🗺️ Geospatial Intelligence Dashboard
+- **Interactive Risk Map**: A Leaflet-powered GIS map that color-codes projects:
+    - 🟢 **Green**: Normal/Compliant.
+    - 🔴 **Red**: High-Risk/Anomaly Flagged.
+- **Real-time Metrics**: Tracking of total sanctioned funds, high-risk counts, and SLA breach alerts.
+- **Statutory Quota Monitoring**: Tracking of SC/ST allocation targets (15% SC, 7.5% ST) to ensure social equity compliance.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | Next.js 14 (App Router), TypeScript, Tailwind CSS | High-performance, type-safe UI/UX |
+| **Backend** | FastAPI (Python 3.13), Uvicorn | Asynchronous, high-throughput AI API |
+| **Database** | PostgreSQL + PostGIS | Relational data with Spatial extension |
+| **ML Engine** | Scikit-Learn (Isolation Forest), Pandas, GeoPandas | Anomaly detection and data manipulation |
+| **Infrastructure**| Docker Compose | Containerized database deployment |
+
+---
+
+## 📦 Installation & Setup
+
+### Prerequisites
+- Docker Desktop
+- Node.js v18+
+- Python 3.13+
+
+### Step 1: Database Setup
 ```powershell
-# Spin up PostGIS container
+cd C:\PS
 docker-compose up -d
 ```
-*Wait about 10 seconds for PostGIS to initialize the schema from `postgres_init/init.sql`.*
+*This spins up the PostGIS container and initializes the spatial schema.*
 
-### 2. Backend Setup
+### Step 2: Backend Configuration
 ```powershell
-# Navigate to backend
-cd backend
-
-# Create virtual environment
+cd C:\PS\backend
 python -m venv venv
 .\venv\Scripts\activate
-
-# Install dependencies
 pip install -r requirements.txt
+```
 
-# Seed the database with mock anomalies
+### Step 3: Seed Mock Data
+```powershell
+# Generate 500+ records with injected anomalies
 python generate_mock_data.py
+```
 
-# Start the server
+### Step 4: Run the System
+**Start Backend:**
+```powershell
 python main.py
 ```
-
-### 3. Frontend Setup
+**Start Frontend:**
 ```powershell
-# Open a new PowerShell window
-cd frontend
-
-# Install dependencies
+cd C:\PS\frontend
 npm install
-
-# Start development server
 npm run dev
 ```
+**Access Dashboard:** `http://localhost:3000`
 
-## 🛠 AI Engine Details
-- **Fund-Splitting Detector**: Uses **Isolation Forest** to flag projects with sanction amounts that deviate statistically from the average.
-- **Ghost Asset Detector**: Uses PostGIS `ST_DWithin` to flag physical assets within 50m of other project sites.
-- **Photo Fraud Detector**: Implements **Perceptual Hashing** to identify duplicate images uploaded as "progress photos" for different projects.
+---
 
-## 📊 Access
-- **Frontend**: `http://localhost:3000`
-- **Backend API**: `http://localhost:8000`
-- **Database**: `localhost:5432` (mplad_admin / mplad_password)
+## 📈 Workflow for Evaluation
+1. **Initial View**: Open the dashboard to see current sanctioned funds and a map of projects.
+2. **Trigger AI**: Click **"Run AI, Analysis"**. The backend will execute the Isolation Forest and Spatial proximity checks.
+3. **Analyze Results**: 
+    - Observe the **Red markers** appearing on the map.
+    - Click a marker to see the **AI Reasoning** (e.g., *"Duplicate asset photo hash matches Project #1042"*).
+    - Review the **High-Risk Case** sidebar for a summarized audit trail.
+
+---
+
+## 🎓 Final Year Project Credits
+- **Domain**: Geospatial AI & Public Governance
+- **Objective**: Transparency and Accountability in Public Infrastructure spending.
+- **Architecture**: Full-Stack Decoupled Architecture.

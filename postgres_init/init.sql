@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS projects (
     project_name VARCHAR(255) NOT NULL,
     sanction_amount DECIMAL(15, 2) NOT NULL,
     category VARCHAR(100),
+    state_ut VARCHAR(100),
+    district VARCHAR(100),
     sla_deadline DATE NOT NULL,
     sc_st_category VARCHAR(50), -- 'SC', 'ST', 'General'
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
