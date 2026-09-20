@@ -22,6 +22,7 @@ Existing systems often focus on simple reporting or static dashboards without in
 ## Scope
 The project focuses on:
 - project-level fund analysis
+- MP-level entitlement, GOI release, and unreleased-balance analysis
 - anomaly detection in sanctioned amounts
 - geospatial risk identification
 - duplicate or overlapping asset detection
@@ -33,13 +34,13 @@ The system is designed to act as a decision-support platform for public project 
 The final system should help stakeholders identify high-risk projects and suspicious patterns early, reduce the effort required for manual inspection, and improve transparency in public fund monitoring.
 
 ## Success Criteria
-- The system can ingest project and asset data.
+- The system can ingest official MPLADS financial records and project/asset data when available.
 - It identifies anomalies with meaningful risk scores.
-- Dashboard users can understand risk areas and high-risk projects.
+- Dashboard users can understand normal, moderate, and high release-gap risk areas and MP predictions.
 - The solution is scalable and can be extended with more datasets and models.
 
 ## Future Enhancement Roadmap
-- Add more project features and real-world datasets
+- Add project-level expenditure, completion, coordinate, and evidence datasets
 - Compare multiple ML models and evaluate performance
 - Add filters, search, and project detailed views
 - Include explainable AI for risk reasoning

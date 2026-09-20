@@ -1,26 +1,30 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const getRiskColor = (riskScore) => {
+const getRiskColor = (riskScore: any) => {
   const score = Number(riskScore || 0);
-  if (score >= 85) return '#991b1b';
   if (score >= 70) return '#dc2626';
   if (score >= 50) return '#d97706';
   return '#16805b';
 };
 
-const getRiskLabel = (riskScore) => {
+const getRiskLabel = (riskScore: any) => {
   const score = Number(riskScore || 0);
-  if (score >= 85) return 'Critical';
   if (score >= 70) return 'High risk';
-  if (score >= 50) return 'Moderate';
+  if (score >= 50) return 'Moderate risk';
   return 'Normal';
 };
 
-const getMarkerIcon = (riskScore) => {
-  const color = getRiskColor(riskScore);
+const getFinancialColor = (fundingStatus: any) => {
+  if (fundingStatus === 'unreleased') return '#b91c1c';
+  if (fundingStatus === 'partial') return '#d97706';
+  return '#16805b';
+};
+
+const getMarkerIcon = (riskScore: any, fundingStatus: any) => {
+  const color = riskScore !== null && riskScore !== undefined ? getRiskColor(riskScore) : getFinancialColor(fundingStatus);
   return L.divIcon({
     className: 'risk-marker-wrapper',
     html: `<span class="risk-marker" style="background:${color}; box-shadow: 0 0 0 3px rgba(255,255,255,0.9), 0 2px 6px rgba(15,23,42,0.35)"></span>`,
@@ -30,10 +34,22 @@ const getMarkerIcon = (riskScore) => {
   });
 };
 
-export default function MapView({ projects, stateFilter = 'all', districtFilter = 'all' }) {
-  const [map, setMap] = useState(null);
+export default function MapView({
+  projects,
+  stateFilter = 'all',
+  districtFilter = 'all',
+  onProjectSelect,
+}: {
+  projects: any;
+  stateFilter?: string;
+  districtFilter?: string;
+  onProjectSelect?: (p: any) => void;
+}) {
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
+  const markerGroupRef = useRef<L.LayerGroup | null>(null);
 
-  const locationCenterMap = {
+  const locationCenterMap: Record<string, { center: [number, number]; zoom: number }> = {
     all: { center: [22.5937, 78.9629], zoom: 5 },
     Delhi: { center: [28.6139, 77.2090], zoom: 10 },
     Maharashtra: { center: [19.7515, 75.7139], zoom: 7 },
@@ -79,55 +95,98 @@ export default function MapView({ projects, stateFilter = 'all', districtFilter 
   };
 
   useEffect(() => {
-    // Initialize map ONLY once
-    if (map) return;
+    if (!mapContainerRef.current) return;
+    if (mapInstanceRef.current) return;
+
+    // Reset leaflet ID if container was reused during fast refresh
+    if ((mapContainerRef.current as any)._leaflet_id) {
+      (mapContainerRef.current as any)._leaflet_id = null;
+    }
 
     try {
-      const mapInstance = L.map('map-container', {
+      const mapInstance = L.map(mapContainerRef.current, {
         center: [22.5937, 78.9629],
         zoom: 5,
+        zoomAnimation: false,
+        fadeAnimation: false,
+        markerZoomAnimation: false,
       });
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        attribution: '© OpenStreetMap contributors',
       }).addTo(mapInstance);
 
-      setMap(mapInstance);
-
-      return () => {
-        mapInstance.remove();
-        setMap(null);
-      };
+      const markerGroup = L.layerGroup().addTo(mapInstance);
+      markerGroupRef.current = markerGroup;
+      mapInstanceRef.current = mapInstance;
     } catch (e) {
       console.error("Leaflet Init Error:", e);
     }
+
+    return () => {
+      if (markerGroupRef.current) {
+        try {
+          markerGroupRef.current.clearLayers();
+        } catch {
+          // ignore
+        }
+        markerGroupRef.current = null;
+      }
+      if (mapInstanceRef.current) {
+        try {
+          mapInstanceRef.current.remove();
+        } catch {
+          // ignore
+        }
+        mapInstanceRef.current = null;
+      }
+    };
   }, []);
 
-  // Update markers when projects change
+  // Update markers when projects or filters change
   useEffect(() => {
-    if (!map) return;
+    const map = mapInstanceRef.current;
+    const markerGroup = markerGroupRef.current;
+    if (!map || !markerGroup) return;
 
-    map.eachLayer((layer) => {
-      if (layer instanceof L.Marker) {
-        map.removeLayer(layer);
-      }
-    });
+    try {
+      markerGroup.clearLayers();
+    } catch {
+      // ignore
+    }
 
-    const validProjects = (projects || []).filter((p) => Number.isFinite(p.latitude) && Number.isFinite(p.longitude));
+    const validProjects = (projects || []).filter(
+      (p: any) => Number.isFinite(p.latitude) && Number.isFinite(p.longitude)
+    );
 
-    validProjects.forEach((p) => {
-      const marker = L.marker([p.latitude, p.longitude], { icon: getMarkerIcon(p.risk_score) }).addTo(map);
+    validProjects.forEach((p: any) => {
+      const hasVerifiedRisk = Boolean(p.anomaly_type);
+      const marker = L.marker([p.latitude, p.longitude], {
+        icon: getMarkerIcon(hasVerifiedRisk ? p.risk_score : p.financial_risk_score, p.funding_status),
+      });
+
+      marker.on('click', () => {
+        onProjectSelect?.(p);
+      });
+
+      const financialLabel = p.funding_status === 'released' ? 'Fully released' : p.funding_status === 'partial' ? 'Partially released' : 'Not released';
+      const statusLabel = hasVerifiedRisk ? getRiskLabel(p.risk_score) : getRiskLabel(p.financial_risk_score);
+      const statusStyle = hasVerifiedRisk
+        ? (p.risk_score > 70 ? 'background: #fee2e2; color: #b91c1c;' : 'background: #dcfce7; color: #15803d;')
+        : (p.financial_risk_score >= 70 ? 'background: #fee2e2; color: #b91c1c;' : p.financial_risk_score >= 50 ? 'background: #fef3c7; color: #92400e;' : 'background: #dcfce7; color: #15803d;');
+
       marker.bindPopup(`
         <div style="font-family: sans-serif; padding: 5px;">
           <strong style="font-size: 14px;">${p.project_name}</strong><br/>
           <span style="font-size: 12px;">ID: ${p.project_id} | MP: ${p.mp_id}</span><br/>
-          <div style="margin-top: 5px; padding: 2px 5px; font-size: 11px; font-weight: bold; border-radius: 4px; 
-            ${p.risk_score > 70 ? 'background: #fee2e2; color: #b91c1c;' : 'background: #dcfce7; color: #15803d;'}">
-            ${getRiskLabel(p.risk_score)}${p.anomaly_type ? ': ' + p.anomaly_type : ''}
+          <div style="margin-top: 5px; padding: 2px 5px; font-size: 11px; font-weight: bold; border-radius: 4px; ${statusStyle}">
+            ${statusLabel}${p.anomaly_type ? ': ' + p.anomaly_type : ''}${p.release_ratio_percent !== null && p.release_ratio_percent !== undefined ? ` (${p.release_ratio_percent}% released)` : ''}
           </div>
           ${p.reasoning ? `<p style="font-size: 11px; font-style: italic; color: #4b5563; margin-top: 4px;">${p.reasoning}</p>` : ''}
         </div>
       `);
+
+      markerGroup.addLayer(marker);
     });
 
     const selectedLocation = districtFilter !== 'all' ? locationCenterMap[districtFilter]
@@ -135,24 +194,24 @@ export default function MapView({ projects, stateFilter = 'all', districtFilter 
       : locationCenterMap.all;
 
     if (validProjects.length > 0) {
-      const bounds = L.latLngBounds(validProjects.map((p) => [p.latitude, p.longitude]));
+      const bounds = L.latLngBounds(validProjects.map((p: any) => [p.latitude, p.longitude]));
       if (bounds.isValid()) {
         const shouldUseFocusedLocation = districtFilter !== 'all' || stateFilter !== 'all';
         if (shouldUseFocusedLocation && selectedLocation) {
-          map.setView(selectedLocation.center, selectedLocation.zoom);
+          map.setView(selectedLocation.center, selectedLocation.zoom, { animate: false });
         } else {
-          map.fitBounds(bounds.pad(0.2));
+          map.fitBounds(bounds.pad(0.2), { animate: false });
         }
       }
     } else {
       const fallbackLocation = selectedLocation || locationCenterMap.all;
-      map.setView(fallbackLocation.center, fallbackLocation.zoom);
+      map.setView(fallbackLocation.center, fallbackLocation.zoom, { animate: false });
     }
-  }, [map, projects, stateFilter, districtFilter]);
+  }, [projects, stateFilter, districtFilter]);
 
   return (
     <div 
-      id="map-container" 
+      ref={mapContainerRef}
       style={{ height: '100%', width: '100%', borderRadius: '8px', boxShadow: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)' }} 
     />
   );

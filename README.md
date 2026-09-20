@@ -56,11 +56,15 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-### Step 3: Seed Mock Data
+### Step 3: Import MPLADS Data
+Place the official CSV at `backend/data/MPLADs Dataset.csv`. The importer reads MP, state, nodal district, entitlement, GOI release, and unreleased amount records and loads them into the project registry.
+
 ```powershell
-# Generate 500+ records with injected anomalies
+# Import the official dataset when it is present
 python generate_mock_data.py
 ```
+
+If the CSV is not present, the importer falls back to generating the prototype dataset. For the official summary, the importer adds approximate state-level placements so the records can be visualized; these are not actual project coordinates. The official dataset does not provide photographs or ground-truth fraud labels, so spatial/photo anomaly checks remain disabled for those approximate markers until project-level records are supplied.
 
 ### Step 4: Run the System
 **Start Backend:**

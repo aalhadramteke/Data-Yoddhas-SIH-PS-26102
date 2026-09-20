@@ -21,13 +21,13 @@ These gaps can delay intervention, increase administrative effort, and reduce tr
 
 ### 3. Proposed Solution
 
-The platform receives project, funding, location, and asset evidence, analyzes it through multiple detection layers, and assigns risk information to each project. The results are presented through an interactive monitoring dashboard with:
+The platform receives official MPLADS financial records and, when available, project and asset evidence. It analyzes the available signals and assigns transparent monitoring risk information. The results are presented through an interactive monitoring dashboard with:
 
 - portfolio-level funding and risk metrics;
-- filters for risk level, project category, and project search;
-- a geospatial map showing project locations and risk status;
-- a high-risk case list for prioritizing review; and
-- AI reasoning that explains why a project was flagged.
+- filters for three risk levels, release coverage, state, district, category, and search;
+- a geospatial coverage map with normal, moderate, and high risk markers;
+- an MP-level prediction outlook ranked by release gap; and
+- explainable reasoning that distinguishes financial coverage signals from verified anomaly evidence.
 
 The system is designed to support human review, not replace auditors. A risk flag is an early-warning signal that helps an authorized stakeholder decide where verification or field inspection is required.
 
@@ -41,7 +41,7 @@ An **Isolation Forest** model examines sanctioned amounts and identifies project
 
 PostGIS spatial queries compare asset coordinates. Projects with assets within a 50-metre radius of assets belonging to other projects are flagged for possible duplication, overlap, or incorrect reporting.
 
-#### Photo duplication detection
+#### Photo duplication & AI photo detection
 
 Perceptual hashes are compared across uploaded asset photographs. Matching hashes indicate that a photograph may have been reused for multiple project records, creating a signal for further verification.
 
@@ -60,7 +60,7 @@ Each flagged case includes an anomaly type, risk score, and plain-language reaso
 
 ### 6. Key Innovation
 
-The core contribution is the integration of **statistical anomaly detection, geospatial reasoning, and duplicate-image evidence** in a single explainable monitoring workflow. A conventional dashboard reports what has been recorded; this platform adds an analytical layer that helps identify what may require investigation and why.
+The core contribution is the integration of **official financial coverage analysis, statistical anomaly detection, geospatial reasoning, and duplicate-image evidence** in a single explainable monitoring workflow. A conventional dashboard reports what has been recorded; this platform adds an analytical layer that helps identify what may require investigation and why.
 
 ### 7. Technology and Architecture
 
@@ -71,7 +71,7 @@ The core contribution is the integration of **statistical anomaly detection, geo
 - **Evidence processing:** Perceptual-hash comparison for detecting reused images.
 - **Deployment:** Docker Compose for the database environment and a decoupled frontend-backend architecture.
 
-The prototype includes a generated dataset of 500 projects with intentionally injected funding, spatial, and photo patterns so that the end-to-end analysis can be demonstrated and evaluated consistently.
+The prototype imports an official MP-level MPLADS financial dataset and preserves the generated-data fallback for demonstrating spatial and photo evidence workflows when project-level assets are available.
 
 ### 8. Expected Impact
 
@@ -85,7 +85,7 @@ The platform can help public-sector monitoring teams:
 
 ### 9. Scope and Limitations
 
-This project is a prototype decision-support system. Its risk flags do not prove fraud, and the current demonstration uses generated data rather than a production government dataset. Model performance and operational value should therefore be validated with labeled, real-world records, domain-expert review, secure data access, and appropriate governance controls before deployment.
+This project is a prototype decision-support system. The current official dataset reports entitlement, GOI release, and unreleased balances at MP level; it does not prove expenditure, fraud, project completion, exact coordinates, or image reuse. Financial risk is therefore a transparent release-gap proxy, while ML, spatial, and photo findings require project-level evidence and domain validation before operational use.
 
 ### 10. Future Scope
 

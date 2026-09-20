@@ -9,3 +9,5 @@ imagehash
 pillow
 python-multipart
 pydantic
+python-dotenv
+PyJWT

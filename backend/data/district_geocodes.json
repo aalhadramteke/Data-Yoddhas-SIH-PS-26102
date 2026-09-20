@@ -1,0 +1,670 @@
+{
+  "Guntur, Andhra Pradesh, India": {
+    "latitude": 16.306652,
+    "longitude": 80.43654
+  },
+  "Cuddapah, Andhra Pradesh, India": {
+    "latitude": 14.475294,
+    "longitude": 78.821686
+  },
+  "Krishna, Andhra Pradesh, India": {
+    "latitude": 16.187489,
+    "longitude": 81.138893
+  },
+  "Kadapa, Andhra Pradesh, India": {
+    "latitude": 14.475294,
+    "longitude": 78.821686
+  },
+  "East Godavari, Andhra Pradesh, India": {
+    "latitude": 16.989065,
+    "longitude": 82.247465
+  },
+  "Nellore, Andhra Pradesh, India": {
+    "latitude": 14.442599,
+    "longitude": 79.986456
+  },
+  "Kurnool, Andhra Pradesh, India": {
+    "latitude": 15.828126,
+    "longitude": 78.037273
+  },
+  "Visakhapatnam, Andhra Pradesh, India": {
+    "latitude": 17.712617,
+    "longitude": 83.308253
+  },
+  "Papum Pare, Arunachal Pradesh, India": {
+    "latitude": 27.143781,
+    "longitude": 93.699824
+  },
+  "Sonitpur, Assam, India": {
+    "latitude": 26.628812,
+    "longitude": 92.793645
+  },
+  "Kamrup Metropolitan, Assam, India": {
+    "latitude": 26.185891,
+    "longitude": 91.747124
+  },
+  "Kamrup, Assam, India": {
+    "latitude": 26.191142,
+    "longitude": 91.684152
+  },
+  "Jorhat, Assam, India": {
+    "latitude": 26.753825,
+    "longitude": 94.215234
+  },
+  "Dibrugarh, Assam, India": {
+    "latitude": 27.472814,
+    "longitude": 94.912015
+  },
+  "Lakhimpur, Assam, India": {
+    "latitude": 27.236142,
+    "longitude": 94.103521
+  },
+  "Patna, Bihar, India": {
+    "latitude": 25.620658,
+    "longitude": 85.148421
+  },
+  "Samastipur, Bihar, India": {
+    "latitude": 25.862415,
+    "longitude": 85.781245
+  },
+  "Paschim Champaran, Bihar, India": {
+    "latitude": 26.801642,
+    "longitude": 84.506518
+  },
+  "Rohtas, Bihar, India": {
+    "latitude": 24.953612,
+    "longitude": 84.015245
+  },
+  "Saharsa, Bihar, India": {
+    "latitude": 25.883512,
+    "longitude": 86.600645
+  },
+  "Katihar, Bihar, India": {
+    "latitude": 25.541825,
+    "longitude": 87.571412
+  },
+  "East Champaran (Motihari), Bihar, India": {
+    "latitude": 26.648529,
+    "longitude": 84.908871
+  },
+  "Buxar, Bihar, India": {
+    "latitude": 25.568412,
+    "longitude": 83.978215
+  },
+  "Durg, Chhattisgarh, India": {
+    "latitude": 21.190412,
+    "longitude": 81.284915
+  },
+  "Balrampur, Chhattisgarh, India": {
+    "latitude": 23.612415,
+    "longitude": 83.614521
+  },
+  "Bilaspur, Chhattisgarh, India": {
+    "latitude": 22.079712,
+    "longitude": 82.140925
+  },
+  "Raipur, Chhattisgarh, India": {
+    "latitude": 21.242315,
+    "longitude": 81.638412
+  },
+  "Kondagaon, Chhattisgarh, India": {
+    "latitude": 19.598412,
+    "longitude": 81.670514
+  },
+  "Commissioner North DMC, Delhi, India": {
+    "latitude": 28.641528,
+    "longitude": 77.223544
+  },
+  "Commissioner South DMC, Delhi, India": {
+    "latitude": 28.558212,
+    "longitude": 77.202415
+  },
+  "South Goa, Goa, India": {
+    "latitude": 15.283124,
+    "longitude": 73.968215
+  },
+  "Ahmedabad, Gujarat, India": {
+    "latitude": 23.056812,
+    "longitude": 72.580215
+  },
+  "Banaskantha, Gujarat, India": {
+    "latitude": 24.171825,
+    "longitude": 72.434612
+  },
+  "Mahesana, Gujarat, India": {
+    "latitude": 23.597812,
+    "longitude": 72.395412
+  },
+  "Bhavnagar, Gujarat, India": {
+    "latitude": 21.764512,
+    "longitude": 72.151825
+  },
+  "Chhota Udaipur, Gujarat, India": {
+    "latitude": 22.310815,
+    "longitude": 74.011542
+  },
+  "Amreli, Gujarat, India": {
+    "latitude": 21.603125,
+    "longitude": 71.221415
+  },
+  "Rajkot, Gujarat, India": {
+    "latitude": 22.298412,
+    "longitude": 70.796815
+  },
+  "Narmada, Gujarat, India": {
+    "latitude": 21.788512,
+    "longitude": 73.502845
+  },
+  "Sabarkantha, Gujarat, India": {
+    "latitude": 23.597914,
+    "longitude": 72.969821
+  },
+  "Hisar, Haryana, India": {
+    "latitude": 29.153812,
+    "longitude": 75.722915
+  },
+  "Rohtak, Haryana, India": {
+    "latitude": 28.895412,
+    "longitude": 76.606815
+  },
+  "Panipat, Haryana, India": {
+    "latitude": 29.390912,
+    "longitude": 76.963512
+  },
+  "Shimla, Himachal Pradesh, India": {
+    "latitude": 31.104812,
+    "longitude": 77.173415
+  },
+  "Bilaspur, Himachal Pradesh, India": {
+    "latitude": 31.332412,
+    "longitude": 76.757815
+  },
+  "Kangra, Himachal Pradesh, India": {
+    "latitude": 32.219012,
+    "longitude": 76.323415
+  },
+  "Lohardaga, Jharkhand, India": {
+    "latitude": 23.441825,
+    "longitude": 84.683412
+  },
+  "Ranchi, Jharkhand, India": {
+    "latitude": 23.372815,
+    "longitude": 85.328412
+  },
+  "Gumla, Jharkhand, India": {
+    "latitude": 23.045812,
+    "longitude": 84.541915
+  },
+  "Chikmagalur, Karnataka, India": {
+    "latitude": 13.315212,
+    "longitude": 75.775412
+  },
+  "Bengaluru Urban, Karnataka, India": {
+    "latitude": 12.971599,
+    "longitude": 77.585612
+  },
+  "Hassan, Karnataka, India": {
+    "latitude": 13.007812,
+    "longitude": 76.103415
+  },
+  "Belagavi, Karnataka, India": {
+    "latitude": 15.849712,
+    "longitude": 74.508915
+  },
+  "Ballari, Karnataka, India": {
+    "latitude": 15.139412,
+    "longitude": 76.921415
+  },
+  "Gulbarga, Karnataka, India": {
+    "latitude": 17.329712,
+    "longitude": 76.834315
+  },
+  "Kannur, Kerala, India": {
+    "latitude": 11.874512,
+    "longitude": 75.370415
+  },
+  "Alappuzha, Kerala, India": {
+    "latitude": 9.498125,
+    "longitude": 76.328915
+  },
+  "Malappuram, Kerala, India": {
+    "latitude": 11.073412,
+    "longitude": 76.074015
+  },
+  "Thiruvananthapuram, Kerala, India": {
+    "latitude": 8.539812,
+    "longitude": 76.969815
+  },
+  "Kottayam, Kerala, India": {
+    "latitude": 9.591612,
+    "longitude": 76.522115
+  },
+  "Kollam, Kerala, India": {
+    "latitude": 8.893215,
+    "longitude": 76.614112
+  },
+  "Wayanad, Kerala, India": {
+    "latitude": 11.609412,
+    "longitude": 76.082815
+  },
+  "Kozhikode, Kerala, India": {
+    "latitude": 11.282815,
+    "longitude": 75.798912
+  },
+  "Badwani, Madhya Pradesh, India": {
+    "latitude": 22.036814,
+    "longitude": 74.903218
+  },
+  "Rewa, Madhya Pradesh, India": {
+    "latitude": 24.536215,
+    "longitude": 81.298912
+  },
+  "Jabalpur, Madhya Pradesh, India": {
+    "latitude": 23.168512,
+    "longitude": 79.933815
+  },
+  "Singrauli, Madhya Pradesh, India": {
+    "latitude": 24.062815,
+    "longitude": 82.628912
+  },
+  "Sehore, Madhya Pradesh, India": {
+    "latitude": 23.203112,
+    "longitude": 77.084512
+  },
+  "Ashok Nagar, Madhya Pradesh, India": {
+    "latitude": 24.576812,
+    "longitude": 77.728915
+  },
+  "Narsinghpur, Madhya Pradesh, India": {
+    "latitude": 22.943112,
+    "longitude": 79.198915
+  },
+  "Bhopal, Madhya Pradesh, India": {
+    "latitude": 23.259933,
+    "longitude": 77.412615
+  },
+  "Mandla, Madhya Pradesh, India": {
+    "latitude": 22.598512,
+    "longitude": 80.371415
+  },
+  "Chhindwara, Madhya Pradesh, India": {
+    "latitude": 22.057412,
+    "longitude": 78.938215
+  },
+  "Aurangabad, Maharashtra, India": {
+    "latitude": 19.882412,
+    "longitude": 75.334115
+  },
+  "Parbhani, Maharashtra, India": {
+    "latitude": 19.268512,
+    "longitude": 76.774112
+  },
+  "Nagpur, Maharashtra, India": {
+    "latitude": 21.152412,
+    "longitude": 79.071815
+  },
+  "Sindhudurg, Maharashtra, India": {
+    "latitude": 16.126412,
+    "longitude": 73.693821
+  },
+  "Mumbai City, Maharashtra, India": {
+    "latitude": 18.932212,
+    "longitude": 72.836815
+  },
+  "Gondia, Maharashtra, India": {
+    "latitude": 21.460412,
+    "longitude": 80.196415
+  },
+  "Mumbai Suburban, Maharashtra, India": {
+    "latitude": 19.059612,
+    "longitude": 72.848512
+  },
+  "Satara, Maharashtra, India": {
+    "latitude": 17.680512,
+    "longitude": 73.993415
+  },
+  "Thane, Maharashtra, India": {
+    "latitude": 19.198212,
+    "longitude": 72.978015
+  },
+  "Pune, Maharashtra, India": {
+    "latitude": 18.528412,
+    "longitude": 73.874015
+  },
+  "Beed, Maharashtra, India": {
+    "latitude": 18.989212,
+    "longitude": 75.760115
+  },
+  "Imphal East, Manipur, India": {
+    "latitude": 24.811812,
+    "longitude": 93.963415
+  },
+  "East Khasi Hills, Meghalaya, India": {
+    "latitude": 25.578812,
+    "longitude": 91.893315
+  },
+  "Aizawal, Mizoram, India": {
+    "latitude": 23.727107,
+    "longitude": 92.717639
+  },
+  "Kohima, Nagaland, India": {
+    "latitude": 25.675112,
+    "longitude": 94.108615
+  },
+  "Sundargarh, Odisha, India": {
+    "latitude": 22.122412,
+    "longitude": 84.037815
+  },
+  "Mayurbhanj, Odisha, India": {
+    "latitude": 21.932812,
+    "longitude": 86.721415
+  },
+  "Cuttack, Odisha, India": {
+    "latitude": 20.462521,
+    "longitude": 85.882988
+  },
+  "Rayagada, Odisha, India": {
+    "latitude": 19.171825,
+    "longitude": 83.416245
+  },
+  "Baragarh, Odisha, India": {
+    "latitude": 21.333145,
+    "longitude": 83.621412
+  },
+  "Khordha, Odisha, India": {
+    "latitude": 20.183421,
+    "longitude": 85.617812
+  },
+  "Kalahandi, Odisha, India": {
+    "latitude": 19.904812,
+    "longitude": 83.167815
+  },
+  "Balangir, Odisha, India": {
+    "latitude": 20.713412,
+    "longitude": 83.486415
+  },
+  "Puducherry, Puducherry, India": {
+    "latitude": 11.951812,
+    "longitude": 79.818415
+  },
+  "Rupnagar, Punjab, India": {
+    "latitude": 30.965812,
+    "longitude": 76.527315
+  },
+  "Jalandhar, Punjab, India": {
+    "latitude": 31.326015,
+    "longitude": 75.576212
+  },
+  "Gurdaspur, Punjab, India": {
+    "latitude": 32.041812,
+    "longitude": 75.405415
+  },
+  "Mansa, Punjab, India": {
+    "latitude": 29.988212,
+    "longitude": 75.394115
+  },
+  "Fatehgarh Sahib, Punjab, India": {
+    "latitude": 30.643715,
+    "longitude": 76.388832
+  },
+  "Amritsar, Punjab, India": {
+    "latitude": 31.633912,
+    "longitude": 74.865512
+  },
+  "Sangrur, Punjab, India": {
+    "latitude": 30.245812,
+    "longitude": 75.843215
+  },
+  "Jaipur, Rajasthan, India": {
+    "latitude": 26.926412,
+    "longitude": 75.795215
+  },
+  "Ajmer, Rajasthan, India": {
+    "latitude": 26.449895,
+    "longitude": 74.639912
+  },
+  "Dungarpur, Rajasthan, India": {
+    "latitude": 23.838412,
+    "longitude": 73.714512
+  },
+  "Dausa, Rajasthan, India": {
+    "latitude": 26.892412,
+    "longitude": 76.337815
+  },
+  "Sirohi, Rajasthan, India": {
+    "latitude": 24.882412,
+    "longitude": 72.861415
+  },
+  "Jodhpur, Rajasthan, India": {
+    "latitude": 26.296812,
+    "longitude": 73.031512
+  },
+  "East District, Sikkim, India": {
+    "latitude": 27.331405,
+    "longitude": 88.608712
+  },
+  "Chennai, Tamil Nadu, India": {
+    "latitude": 13.089124,
+    "longitude": 80.288215
+  },
+  "Kanniyakumari, Tamil Nadu, India": {
+    "latitude": 8.183212,
+    "longitude": 77.411915
+  },
+  "Namakkal, Tamil Nadu, India": {
+    "latitude": 11.218912,
+    "longitude": 78.167415
+  },
+  "Thanjavaur, Tamil Nadu, India": {
+    "latitude": 10.786999,
+    "longitude": 79.137827
+  },
+  "Pudukkottai, Tamil Nadu, India": {
+    "latitude": 10.379812,
+    "longitude": 78.820815
+  },
+  "Salem, Tamil Nadu, India": {
+    "latitude": 11.664312,
+    "longitude": 78.146015
+  },
+  "Coimbatore, Tamil Nadu, India": {
+    "latitude": 11.001812,
+    "longitude": 76.962815
+  },
+  "Tiruchirappali, Tamil Nadu, India": {
+    "latitude": 10.805812,
+    "longitude": 78.685615
+  },
+  "Tenkasi, Tamil Nadu, India": {
+    "latitude": 8.959412,
+    "longitude": 77.315215
+  },
+  "Dharmapuri, Tamil Nadu, India": {
+    "latitude": 12.135412,
+    "longitude": 78.158415
+  },
+  "Erode, Tamil Nadu, India": {
+    "latitude": 11.341012,
+    "longitude": 77.717215
+  },
+  "Kirhsnagiri, Tamil Nadu, India": {
+    "latitude": 12.518611,
+    "longitude": 78.213745
+  },
+  "Thajavaur, Tamil Nadu, India": {
+    "latitude": 10.786999,
+    "longitude": 79.137827
+  },
+  "Hyderabad, Telangana, India": {
+    "latitude": 17.391612,
+    "longitude": 78.473512
+  },
+  "Suryapet, Telangana, India": {
+    "latitude": 17.143812,
+    "longitude": 79.623415
+  },
+  "Nizamabad, Telangana, India": {
+    "latitude": 18.672412,
+    "longitude": 78.094115
+  },
+  "Karimnagar, Telangana, India": {
+    "latitude": 18.438612,
+    "longitude": 79.128815
+  },
+  "West Tripura, Tripura, India": {
+    "latitude": 23.831512,
+    "longitude": 91.286815
+  },
+  "Lucknow, Uttar Pradesh, India": {
+    "latitude": 26.853624,
+    "longitude": 80.933182
+  },
+  "Farrukhabad, Uttar Pradesh, India": {
+    "latitude": 27.369512,
+    "longitude": 79.629345
+  },
+  "Varanasi, Uttar Pradesh, India": {
+    "latitude": 25.334112,
+    "longitude": 82.986815
+  },
+  "Rae Bareli, Uttar Pradesh, India": {
+    "latitude": 26.223612,
+    "longitude": 81.240891
+  },
+  "Meerut, Uttar Pradesh, India": {
+    "latitude": 28.984512,
+    "longitude": 77.706415
+  },
+  "Banda/Chitrakoot, Uttar Pradesh, India": {
+    "latitude": 25.476412,
+    "longitude": 80.334405
+  },
+  "Allahabad, Uttar Pradesh, India": {
+    "latitude": 25.452412,
+    "longitude": 81.834115
+  },
+  "Ballia, Uttar Pradesh, India": {
+    "latitude": 25.758412,
+    "longitude": 84.150815
+  },
+  "Ghaziabad, Uttar Pradesh, India": {
+    "latitude": 28.669212,
+    "longitude": 77.453815
+  },
+  "Firozabad, Uttar Pradesh, India": {
+    "latitude": 27.151812,
+    "longitude": 78.395715
+  },
+  "Etah, Uttar Pradesh, India": {
+    "latitude": 27.558412,
+    "longitude": 78.665415
+  },
+  "Gorakhpur, Uttar Pradesh, India": {
+    "latitude": 26.758812,
+    "longitude": 83.373115
+  },
+  "Moradabad, Uttar Pradesh, India": {
+    "latitude": 28.838512,
+    "longitude": 78.773415
+  },
+  "Gautambudh Nagar, Uttar Pradesh, India": {
+    "latitude": 28.514212,
+    "longitude": 77.498415
+  },
+  "Sonbhadra, Uttar Pradesh, India": {
+    "latitude": 24.685812,
+    "longitude": 83.068415
+  },
+  "Lakhimpur Kheri, Uttar Pradesh, India": {
+    "latitude": 27.948212,
+    "longitude": 80.778512
+  },
+  "Bhadohi, Uttar Pradesh, India": {
+    "latitude": 25.343812,
+    "longitude": 82.569415
+  },
+  "Agra, Uttar Pradesh, India": {
+    "latitude": 27.176712,
+    "longitude": 78.008115
+  },
+  "Kanpur Nagar, Uttar Pradesh, India": {
+    "latitude": 26.468212,
+    "longitude": 80.349815
+  },
+  "Sidharth Nagar, Uttar Pradesh, India": {
+    "latitude": 27.294112,
+    "longitude": 83.098415
+  },
+  "Orraiya, Uttar Pradesh, India": {
+    "latitude": 26.466412,
+    "longitude": 79.516815
+  },
+  "Hapur, Uttar Pradesh, India": {
+    "latitude": 28.730512,
+    "longitude": 77.775815
+  },
+  "Jaunpur, Uttar Pradesh, India": {
+    "latitude": 25.753812,
+    "longitude": 82.684115
+  },
+  "Mirzapur, Uttar Pradesh, India": {
+    "latitude": 25.146812,
+    "longitude": 82.569415
+  },
+  "Dehradun, Uttarakhand, India": {
+    "latitude": 30.325612,
+    "longitude": 78.043512
+  },
+  "Bageshwar, Uttarakhand, India": {
+    "latitude": 29.839412,
+    "longitude": 79.771815
+  },
+  "Paudi Garhwal, Uttarakhand, India": {
+    "latitude": 30.149412,
+    "longitude": 78.778415
+  },
+  "Kolkata, West Bengal, India": {
+    "latitude": 22.572612,
+    "longitude": 88.351215
+  },
+  "Howrah, West Bengal, India": {
+    "latitude": 22.589812,
+    "longitude": 88.328415
+  },
+  "Birbhum, West Bengal, India": {
+    "latitude": 23.905412,
+    "longitude": 87.528415
+  },
+  "Kolhapur, Maharashtra, India": {
+    "latitude": 16.705012,
+    "longitude": 74.243315
+  },
+  "Nashik, Maharashtra, India": {
+    "latitude": 19.997512,
+    "longitude": 73.789815
+  },
+  "Begusarai, Bihar, India": {
+    "latitude": 25.418212,
+    "longitude": 86.127815
+  },
+  "Dang, Gujarat, India": {
+    "latitude": 20.758412,
+    "longitude": 73.684115
+  },
+  "Outer Manipur, Manipur, India": {
+    "latitude": 24.331512,
+    "longitude": 93.678415
+  },
+  "Kamrup Metro, Assam, India": {
+    "latitude": 26.185891,
+    "longitude": 91.747124
+  },
+  "SDMC, Delhi, India": {
+    "latitude": 28.558212,
+    "longitude": 77.202415
+  },
+  "NDMC, Delhi, India": {
+    "latitude": 28.641528,
+    "longitude": 77.223544
+  }
+}
