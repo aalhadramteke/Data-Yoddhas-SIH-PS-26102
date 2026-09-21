@@ -13,9 +13,9 @@ L.Icon.Default.mergeOptions({
 
 const getRiskColor = (riskScore: any) => {
   const score = Number(riskScore || 0);
-  if (score >= 70) return '#dc2626'; // Red
-  if (score >= 50) return '#d97706'; // Orange
-  return '#16805b'; // Green
+  if (score >= 70) return '#dc2626';
+  if (score >= 50) return '#d97706';
+  return '#16805b';
 };
 
 const getRiskLabel = (riskScore: any) => {
@@ -39,6 +39,19 @@ export default function MapView({
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markerGroupRef = useRef<L.LayerGroup | null>(null);
+  const [markerCount, setMarkerCount] = React.useState(0);
+
+  const locationCenterMap: Record<string, { center: [number, number]; zoom: number }> = {
+    all: { center: [22.5937, 78.9629], zoom: 5 },
+    Delhi: { center: [28.6139, 77.2090], zoom: 10 },
+    Maharashtra: { center: [19.7515, 75.7139], zoom: 7 },
+    Karnataka: { center: [15.3173, 75.7139], zoom: 7 },
+    'Tamil Nadu': { center: [11.1271, 78.6569], zoom: 7 },
+    'Uttar Pradesh': { center: [26.8467, 80.9462], zoom: 7 },
+    'West Bengal': { center: [22.9868, 87.8550], zoom: 7 },
+    Gujarat: { center: [22.2587, 71.1924], zoom: 7 },
+    Bihar: { center: [25.0961, 85.3131], zoom: 7 },
+  };
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -63,12 +76,7 @@ export default function MapView({
       markerGroupRef.current = markerGroup;
       mapInstanceRef.current = mapInstance;
 
-      const resizeInterval = setInterval(() => {
-        mapInstance.invalidateSize();
-      }, 500);
-
-      setTimeout(() => clearInterval(resizeInterval), 5000);
-
+      setTimeout(() => mapInstance.invalidateSize(), 200);
     } catch (e) {
       console.error("Leaflet Init Error:", e);
     }
@@ -94,11 +102,12 @@ export default function MapView({
              (p.latitude !== 0 || p.longitude !== 0);
     });
 
+    setMarkerCount(validProjects.length);
+
     validProjects.forEach((p: any) => {
       const riskScore = Number(p.risk_score || p.financial_risk_score || 0);
       const color = getRiskColor(riskScore);
 
-      // Use CircleMarkers instead of Default Markers to ensure the RED/ORANGE/GREEN color scheme is visible
       const marker = L.circleMarker([p.latitude, p.longitude], {
         radius: 8,
         fillColor: color,
@@ -126,22 +135,35 @@ export default function MapView({
       const bounds = L.latLngBounds(validProjects.map((p: any) => [p.latitude, p.longitude]));
       map.fitBounds(bounds, { padding: [30, 30] });
     } else {
-      map.setView([22.5937, 78.9629], 5);
+      const selected = districtFilter !== 'all' ? locationCenterMap[districtFilter] :
+                        stateFilter !== 'all' ? locationCenterMap[stateFilter] :
+                        locationCenterMap.all;
+      map.setView(selected.center, selected.zoom);
     }
-
-    setTimeout(() => map.invalidateSize(), 300);
   }, [projects, stateFilter, districtFilter]);
 
   return (
-    <div
-      ref={mapContainerRef}
-      style={{
-        height: '100%',
-        width: '100%',
-        backgroundColor: '#f1f5f9',
-        zIndex: 1,
-        minHeight: '400px'
-      }}
-    />
+    <div className="relative w-full h-full">
+      <div
+        ref={mapContainerRef}
+        style={{
+          height: '100%',
+          width: '100%',
+          backgroundColor: '#f1f5f9',
+          zIndex: 1,
+        }}
+      />
+      {/* DEBUG OVERLAY: Tells us exactly if data is reaching the map */}
+      <div className="absolute bottom-4 right-4 z-[1000] bg-white/90 px-2 py-1 rounded border border-slate-200 text-[10px] font-mono text-slate-500 shadow-sm pointer-events-none">
+        Markers: {markerCount}
+      </div>
+      {markerCount === 0 && (
+        <div className="absolute inset-0 z-[1001] flex items-center justify-center bg-slate-50/50 pointer-events-none">
+          <div className="bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm text-xs text-slate-400 font-medium">
+            No spatial data available for current filters
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
