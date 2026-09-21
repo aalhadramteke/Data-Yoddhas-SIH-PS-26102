@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { DollarSign, ShieldAlert, Users, Clock } from 'lucide-react';
-import { ProjectStats } from '../types/domain';
+import { ProjectStats } from '../../types/domain';
 
 interface StatCardProps {
   icon: React.ReactNode;
