@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { X, ShieldAlert } from 'lucide-react';
-import { MPLADProject } from '@/types/domain';
+import { MPLADProject } from '../../types/domain';
 
 interface ProjectDrawerProps {
   project: MPLADProject | null;

@@ -153,7 +153,7 @@ export default function Dashboard() {
     });
     const res = await fetch(`${apiBase}/api/projects?${params.toString()}`, { headers: getAuthHeaders() });
     if (!res.ok) throw new Error(`Status: ${res.status}`);
-    const data = await res.json();
+    const data = (await res.json()) as MPLADProject[];
     if (requestId !== projectsRequestId.current) return;
     setMapProjects(data);
     setProjects(Array.from(new Map(data.map((p: any) => [p.project_id, p])).values()));

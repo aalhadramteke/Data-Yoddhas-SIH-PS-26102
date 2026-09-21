@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { Filter } from 'lucide-react';
-import { LocationOptions } from '@/types/domain';
+import { LocationOptions } from '../../types/domain';
 
 interface FilterPanelProps {
   filters: {
