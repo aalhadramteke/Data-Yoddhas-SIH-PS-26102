@@ -1,1 +1,13 @@
-fastapi\nuvicorn\nscikit-learn\nxgboost\npandas\ngeopandas\npsycopg2-binary\nimagehash\npillow\npython-multipart\npydantic\npython-dotenv\nPyJWT
+fastapi
+uvicorn
+scikit-learn
+xgboost
+pandas
+geopandas
+psycopg2-binary
+imagehash
+pillow
+python-multipart
+pydantic
+python-dotenv
+PyJWT
