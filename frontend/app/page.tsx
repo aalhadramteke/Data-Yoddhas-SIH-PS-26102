@@ -96,8 +96,9 @@ export default function Dashboard() {
     event.preventDefault();
     setAuthLoading(true);
     setAuthError(null);
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/auth/login', {
+      const response = await fetch(`${apiBase}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginForm),
@@ -121,6 +122,7 @@ export default function Dashboard() {
   };
 
   const fetchStats = async () => {
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
     const params = new URLSearchParams({
       risk_min: String(filters.riskFilter),
       ...(filters.riskMax !== null ? { risk_max: String(filters.riskMax) } : {}),
@@ -130,7 +132,7 @@ export default function Dashboard() {
       ...(filters.searchQuery ? { search: filters.searchQuery } : {}),
       ...(filters.fundingFilter !== 'all' ? { funding_status: filters.fundingFilter } : {}),
     });
-    const res = await fetch(`http://127.0.0.1:8000/api/stats?${params.toString()}`, { headers: getAuthHeaders() });
+    const res = await fetch(`${apiBase}/api/stats?${params.toString()}`, { headers: getAuthHeaders() });
     if (!res.ok) throw new Error(`Status: ${res.status}`);
     const data = await res.json();
     setStats(data);
@@ -138,6 +140,7 @@ export default function Dashboard() {
 
   const fetchProjects = async () => {
     const requestId = ++projectsRequestId.current;
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
     const params = new URLSearchParams({
       risk_min: String(filters.riskFilter),
       ...(filters.riskMax !== null ? { risk_max: String(filters.riskMax) } : {}),
@@ -148,7 +151,7 @@ export default function Dashboard() {
       ...(filters.fundingFilter !== 'all' ? { funding_status: filters.fundingFilter } : {}),
       limit: '1500',
     });
-    const res = await fetch(`http://127.0.0.1:8000/api/projects?${params.toString()}`, { headers: getAuthHeaders() });
+    const res = await fetch(`${apiBase}/api/projects?${params.toString()}`, { headers: getAuthHeaders() });
     if (!res.ok) throw new Error(`Status: ${res.status}`);
     const data = await res.json();
     if (requestId !== projectsRequestId.current) return;
@@ -181,7 +184,8 @@ export default function Dashboard() {
 
   const handleReviewAnomaly = async (id: string | number, status: string) => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/projects/${id}/review`, {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+      const res = await fetch(`${apiBase}/api/projects/${id}/review`, {
         method: 'PATCH',
         headers: { ...getAuthHeaders(), 'Content-Type': 'application/json' },
         body: JSON.stringify({ review_status: status }),
