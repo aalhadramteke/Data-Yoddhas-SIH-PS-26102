@@ -1,1 +1,13 @@
--r backend/requirements.txt
+fastapi
+uvicorn
+scikit-learn
+xgboost
+pandas
+geopandas
+psycopg2-binary
+imagehash
+pillow
+python-multipart
+pydantic
+python-dotenv
+PyJWT
